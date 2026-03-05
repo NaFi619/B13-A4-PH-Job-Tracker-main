@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    * {
+        font-family: 'Outfit', sans-serif;
+    }
+</style>
+</head>
+<body class="ml-60 mr-60">
+    <h1 class="text-[32px] font-extrabold text-start mt-[60px] text-info-content">Job Application Tracker</h1>
+
+    <section>
+        <!-- Dashboard -->
+        <div class="grid grid-cols-3 gap-3">
+            <div class="card bg-base-100 shadow-xl p-6 h-24 hover:shadow-slate-500">
+            <div class="pb-0.5">
+                <h2 class="text-[14px] font-bold">Total</h2>
+            </div>
+            <div>
+                <p id="total-dashboard-count" class="text-info-content text-2xl font-bold">8</p>
+            </div>
+            </div>
+
+            <div class="card bg-base-100 shadow-xl p-6 h-24 hover:shadow-slate-500">
+                <div class="pb-0.5">
+                <h2 class="text-[14px] font-bold">Interview</h2>
+            </div>
+            <div>
+                <p id="interview-dashboard-count" class="text-error text-2xl font-bold">0</p>
+            </div>
+
+            </div>
+
+            <div class="card bg-base-100 shadow-xl p-6 h-24 hover:shadow-slate-500">
+                <div class="pb-0.5">
+                <h2 class="text-[14px] font-bold">Rejected</h2>
+            </div>
+            <div>
+                <p id="rejected-dashboard-count" class="text-success text-2xl font-bold">0</p>
+            </div>
+
+            </div>
+        </div>
+<div class="divider mt-8"></div>
+<div>
+<p class="text-[10px] flex justify-end font-semibold"><span>2</span> Jobs</p>
+</div>
+        
+    </section>
+
+
+    <section>
+        <!-- Tabs -->
+        <div>
+        <h1 class="text-xl font-semibold text-start mt-[60px] text-info-content ">Available Jobs</h1>
+        </div>
+        <div class="flex gap-3">
+            <div class="mt-4">
+             <a id="all-tab" onclick="openTab('all')" href="#" class="text-sm text-slate-500 btn btn-info btn-soft font-extrabold w-20">All</a>
+            </div>
+            <div class="mt-4">
+             <a id="interview-tab" onclick="openTab('interview')" href="#" class="text-sm text-slate-500  btn btn-info btn-soft font-extrabold w-20 ">Interview</a>
+            </div>
+            <div class="mt-4">
+             <a id="rejected-tab" onclick="openTab('rejected')" href="#" class="text-sm text-slate-500  btn btn-info btn-soft font-extrabold w-20">Rejected</a>
+            </div>
+        </div>
+    </section>
+
+<section id="all-container">
+<!-- Job Card -->
+<div class="card card-border bg-base-100 shadow-xl w-full mt-4 hover:shadow-slate-900">
+
+  <div class="card-body">
+    <h2 class="text-base font-bold text-start text-info-content flex justify-between">Mobile First Corp <span class="flex justify-end border border-gray-500 rounded-full w-6 h-6 items-center pr-[4.5px] btn border-t-neutral-500 btn-soft "><i class="fa-regular fa-trash-can"></i></span></h2>
+    <h3 class="text-xs font-normal text-start text-info-content">React Native Developer</h3>
+    <ul class="text-xs font-normal text-start text-info-content flex gap-2 pt-2">
+        <li>Remote</li>
+        <li><Span class="font-extrabold">.</Span> Full Time</li>
+        <li><Span class="font-extrabold">.</Span> $130,000 - $175,000</li>
+    </ul>
+    <div>
+        <button class="btn btn-base btn-sm text-xs text-info-content">NOT APPLIED</button>
+    </div>
+    <p class="text-xs font-normal text-start text-info-content">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+    <div class="card-actions justify-start">
+      <button class="btn btn-primary btn-soft">Interview</button>
+      <button class="btn btn-error text-error-content btn-soft">Rejected</button>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section id ="interview-container" class="hidden">
+    <h1>Interviews</h1>
+</section>   
+
+<section id="rejected-container" class="hidden">
+    <h1>Rejected</h1>
+</section>
+
+<!-- No Jobs -->
+<section>
+    <div class="hidden">
+    <div class="flex justify-center">
+        <img src="jobs.png" alt="No job">
+    </div>
+    <div class="text-center">
+        <h1 class="text-2xl font-bold text-center text-info-content">No jobs Available</h1>
+        <p class="text-sm font-semibold text-center text-info-content">Check back soon for new job opportunities</p>
+    </div>
+    </div>
+</section>
+
+
+<script src="index.js"></script>
+</body>
+</html>
