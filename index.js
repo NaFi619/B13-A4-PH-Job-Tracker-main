@@ -8,7 +8,6 @@ const allContainer = document.getElementById("all-container");
 const interviewContainer = document.getElementById("interview-container");
 const rejectedContainer = document.getElementById("rejected-container");
 
-
 function checkEmptyState() {
     const noJobContainer = document.getElementById("no-job-container");
     let activeContainer;
@@ -92,6 +91,7 @@ allContainer.addEventListener("click", function(event) {
         status.innerText = "Interviewed";
         status.className = "mt-2 mb-2 btn btn-success rounded-full font-semibold text-sm status whitespace-nowrap w-fit"; 
         document.getElementById("interview-container").appendChild(card);
+        openTab("interview"); 
         updateDashboardCounts();
         checkEmptyState();
     } 
@@ -99,6 +99,7 @@ allContainer.addEventListener("click", function(event) {
         status.innerText = "Rejected";
         status.className = "mt-2 mb-2 btn btn-error rounded-full font-semibold text-sm status whitespace-nowrap w-fit";
         document.getElementById("rejected-container").appendChild(card);
+        openTab("rejected");
         updateDashboardCounts();
         checkEmptyState();
     } 
@@ -107,7 +108,11 @@ allContainer.addEventListener("click", function(event) {
         updateDashboardCounts();
         checkEmptyState();
     }
+
+    
 });
+
+
 
 openTab(currentTab);
 updateDashboardCounts();
