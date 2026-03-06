@@ -38,14 +38,44 @@ function openTab(tabName) {
     }
 }
 
-const totalDashboard = document.getElementById("total-dashboard-count");
-totalDashboard.innerText = document.getElementById("all-container").childElementCount;
 
-const interviewDashboard = document.getElementById("interview-dashboard-count");
-interviewDashboard.innerText = document.getElementById("interview-container").childElementCount;
 
-const rejectedDashboard = document.getElementById("rejected-dashboard-count");
-rejectedDashboard.innerText = rejectedContainer.children.length;
+function updateDashboardCounts() {
+    const allCount = document.getElementById("all-container").children.length;
+    const interviewCount = document.getElementById("interview-container").children.length;
+    const rejectedCount = document.getElementById("rejected-container").children.length;
+
+    document.getElementById("total-dashboard-count").innerText = allCount + interviewCount + rejectedCount;
+    document.getElementById("interview-dashboard-count").innerText = interviewCount;
+    document.getElementById("rejected-dashboard-count").innerText = rejectedCount;
+}
+
+
+allContainer.addEventListener("click", function(event) {
+    const interviewBtn = event.target.closest(".interview");
+    const rejectedBtn = event.target.closest(".rejected");
+    const deleteBtn = event.target.closest(".delete");
+    const card = event.target.closest(".card");
+
+    const status = card.querySelector(".status");
+    
+    if (interviewBtn) {
+        status.innerText = "Interview";
+        status.className = "mt-2 mb-2 btn btn-neutral font-semibold text-sm status whitespace-nowrap w-fit"; 
+        document.getElementById("interview-container").appendChild(card);
+        updateDashboardCounts();
+    } 
+    else if (rejectedBtn) {
+        status.innerText = "Rejected";
+        status.className = "mt-2 mb-2 btn btn-neutral font-semibold text-sm status whitespace-nowrap w-fit";
+        document.getElementById("rejected-container").appendChild(card);
+        updateDashboardCounts();
+    } 
+    else if (deleteBtn) {
+        card.remove(); 
+        updateDashboardCounts();
+    }
+});
 
 openTab(currentTab);
 
